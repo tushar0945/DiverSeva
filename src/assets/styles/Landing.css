@@ -1,0 +1,541 @@
+/* components/DriveULanding.css */
+.driveu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.driveu-header {
+  background: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.desktop-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.desktop-nav a:hover,
+.desktop-nav a.active {
+  color: #000;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s;
+}
+
+.primary-btn {
+  background: white;
+  color: #764ba2;
+  border: none;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-nav li {
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.mobile-nav li.active,
+.download-mobile {
+  color: #764ba2;
+  font-weight: bold;
+}
+
+/* Services Section */
+.services-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #333;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.service-card:hover,
+.service-card.active {
+  border-color: #764ba2;
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: #764ba2;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.service-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* App Section */
+.app-section {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.app-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.app-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.app-text p {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.app-badges {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.play-store,
+.app-store {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border: none;
+}
+
+.play-store {
+  background: #000;
+  color: white;
+}
+
+.app-store {
+  background: white;
+  color: #000;
+  border: 1px solid #ddd;
+}
+
+.play-store:hover,
+.app-store:hover {
+  transform: translateY(-2px);
+}
+
+/* Map Card */
+.map-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.map-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+}
+
+.map-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.route-info {
+  padding: 1.5rem;
+}
+
+.route-point {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.pin-icon {
+  color: #764ba2;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.route-details h5 {
+  margin: 0 0 0.3rem 0;
+  color: #333;
+}
+
+.route-details p {
+  margin: 0 0 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.via-point {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem 2.2rem;
+  color: #666;
+}
+
+.via-marker {
+  color: #764ba2;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.trip-type {
+  margin: 1rem 0 1.5rem 2.2rem;
+}
+
+.one-way {
+  background: #e8eaf6;
+  color: #3f51b5;
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.location-options {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.my-location {
+  margin-bottom: 0.5rem;
+}
+
+.location-badge {
+  background: #4caf50;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+
+.estimated-usage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f0f7ff;
+  border-radius: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.estimated-usage strong {
+  color: #764ba2;
+}
+
+/* Notifications Section */
+.notifications-section {
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.notifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.notification-card:hover {
+  transform: translateY(-3px);
+  background: #f0f2f5;
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+}
+
+.notification-card p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Footer */
+.driveu-footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-left p {
+  opacity: 0.9;
+}
+
+.footer-download-btn {
+  background: white;
+  color: #764ba2;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.footer-download-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktop-nav,
+  .desktop-download {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .app-badges {
+    justify-content: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .services-section,
+  .app-section,
+  .notifications-section {
+    padding: 2rem 1rem;
+  }
+
+  .app-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .play-store,
+  .app-store {
+    width: 100%;
+    justify-content: center;
+  }
+}
