@@ -4,43 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/auth.context";
 import LoginModal from "../../auth/components/LoginModal";
 import OtpModal from "../../auth/components/OtpModal";
+import CardColumn from "../components/hero/CardColumn";
 
-/* ================= CARD COMPONENT ================= */
-const Card = ({ text }) => {
-  return (
-    <div className="bg-white shadow-md rounded-xl px-5 py-3 flex items-center gap-3 mb-6 min-w-[260px]">
-      <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
-        ✓
-      </span>
-      <p className="text-sm font-medium text-slate-800 whitespace-nowrap">
-        {text}
-      </p>
-    </div>
-  );
-};
-
-/* ================= CARD COLUMN ================= */
-const CardColumn = ({ items, duration = 20 }) => {
-  return (
-    <div className="h-[420px] overflow-hidden">
-      <motion.div
-        className="flex flex-col"
-        animate={{ y: ["0%", "-50%"] }}
-        transition={{
-          duration,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      >
-        {[...items, ...items].map((item, index) => (
-          <Card key={index} text={item} />
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
-/* ================= HERO ================= */
 const Hero = () => {
   const navigate = useNavigate();
   const { isAuthenticated, login } = useAuth();
@@ -53,6 +18,10 @@ const Hero = () => {
     "Office drop completed safely",
     "Family trip started stress-free",
     "PUC & documents handled",
+    "Airport pickup on schedule",
+    "Verified driver with background check",
+    "Real-time trip tracking",
+    "Emergency support available",
   ];
 
   const rightCards = [
@@ -60,9 +29,11 @@ const Hero = () => {
     "Car cleaned before pickup",
     "Trip completed without tension",
     "Rewards earned for your ride",
+    "Seamless payment options",
+    "24/7 customer support",
+    "Insured rides for peace of mind",
+    "Flexible booking options",
   ];
-
-  /* ================= CTA HANDLERS ================= */
 
   const handleBookDriver = () => {
     if (isAuthenticated) {
@@ -72,21 +43,16 @@ const Hero = () => {
     }
   };
 
-  // After phone number submit
   const handleLoginContinue = () => {
     setShowLogin(false);
     setShowOtp(true);
   };
 
-  // After OTP verification
   const handleOtpVerify = (otp) => {
-    // TEMP OTP (replace with backend later)
     if (otp !== "123456") {
       alert("Invalid OTP. Try 123456");
       return;
     }
-
-    // ✅ NOW user is authenticated
     login("verified-token");
     setShowOtp(false);
     navigate("/book");
@@ -95,75 +61,182 @@ const Hero = () => {
   return (
     <>
       <section className="w-full bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* ================= LEFT CONTENT ================= */}
-            <div>
-              <p className="text-emerald-500 font-semibold tracking-wide mb-3">
+        <div className="max-w-7xl mx-auto px-6 pt-2 pb-12 lg:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {/* <motion.p
+                className="text-emerald-500 font-semibold tracking-wide mb-3 text-sm uppercase"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
                 SIMPLIFY CAR OWNERSHIP
-              </p>
+              </motion.p> */}
 
-              <p className="text-sm text-gray-400 mb-4">
+              <motion.p
+                className="text-sm text-gray-400 mb-4 font-medium"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
                 कार आहे? बाकी आम्ही पाहतो.
-              </p>
+              </motion.p>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
                 Need a driver?
                 <br />
-                We take care of your car
+                <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
+                  We take care
+                </span>{" "}
+                of your car
                 <br />
-                like it’s our own.
-              </h1>
+                like it's our own.
+              </motion.h1>
 
-              <p className="mt-4 text-lg font-medium text-emerald-600">
+              <motion.p
+                className="mt-6 text-lg font-medium text-emerald-600"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
                 कार आमची जबाबदारी, प्रवास तुमचा.
-              </p>
+              </motion.p>
 
-              <p className="mt-6 text-gray-500 text-lg max-w-xl">
-                From daily office travel to long family trips —
-                <span className="font-medium text-slate-900">
-                  {" "}
+              <motion.p
+                className="mt-6 text-gray-600 text-lg max-w-xl leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                From daily office travel to long family trips —{" "}
+                <span className="font-semibold text-slate-900">
                   we send drivers you can actually trust.
                 </span>
-              </p>
+              </motion.p>
 
-              <p className="mt-2 text-sm text-gray-400">
+              <motion.p
+                className="mt-4 text-sm text-gray-500"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+              >
                 विश्वासार्ह ड्रायव्हर • मराठी सपोर्ट • No hidden charges
-              </p>
+              </motion.p>
 
-              <div className="mt-10">
-                <button
+              <motion.div
+                className="mt-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+              >
+                <motion.button
                   onClick={handleBookDriver}
-                  className="px-12 py-4 min-w-[220px] bg-gradient-to-r from-slate-900 to-indigo-900 text-white font-semibold rounded-full hover:opacity-90 transition"
+                  className="px-12 py-4 min-w-[220px] bg-gradient-to-r from-slate-900 to-indigo-900 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  Book Driver
-                </button>
-              </div>
+                  <span className="relative z-10">Book Driver Now</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-400"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                </motion.button>
+              </motion.div>
 
-              <p className="mt-6 text-sm text-gray-400 italic">
-                “आज ड्रायव्हर मिळेल का?” — हा प्रश्न आता संपला.
-              </p>
-            </div>
+              <motion.p
+                className="mt-8 text-sm text-gray-500 italic border-l-4 border-emerald-200 pl-4 py-2"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+              >
+                "आज ड्रायव्हर मिळेल का?" — हा प्रश्न आता संपला.
+              </motion.p>
+            </motion.div>
 
-            {/* ================= RIGHT CONTENT ================= */}
-            <div className="relative flex justify-center gap-12">
-              <div className="absolute w-[420px] h-[420px] rounded-full bg-slate-100 -z-10" />
+            {/* RIGHT CONTENT - ANIMATED CARDS */}
+            <motion.div
+              className="relative flex justify-center gap-8 lg:gap-12"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+            >
+              {/* Animated background orb */}
+              <motion.div
+                className="absolute w-[400px] h-[400px] lg:w-[480px] lg:h-[480px] rounded-full -z-10"
+                animate={{
+                  background: [
+                    "radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
+                    "radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
+                    "radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
+                    "radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
+                  ],
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 90, 180, 270, 360],
+                }}
+                transition={{
+                  background: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                  rotate: {
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
+                }}
+              />
 
-              <CardColumn items={leftCards} duration={22} />
-              <CardColumn items={rightCards} duration={28} />
-            </div>
+              {/* Subtle glow effect */}
+              <motion.div
+                className="absolute w-[420px] h-[420px] lg:w-[500px] lg:h-[500px] rounded-full bg-gradient-to-r from-emerald-100/30 to-indigo-100/30 -z-20 blur-2xl"
+                animate={{
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Card columns */}
+              <CardColumn items={leftCards} duration={22} delay={0.5} />
+              <CardColumn
+                items={rightCards}
+                duration={28}
+                reverse
+                delay={0.7}
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ================= PHONE LOGIN MODAL ================= */}
+      {/* MODALS */}
       <LoginModal
         open={showLogin}
         onClose={() => setShowLogin(false)}
         onContinue={handleLoginContinue}
       />
 
-      {/* ================= OTP MODAL ================= */}
       <OtpModal
         open={showOtp}
         onClose={() => setShowOtp(false)}

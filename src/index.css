@@ -6,3 +6,30 @@
 body {
   @apply bg-background text-secondary font-sans;
 }
+
+/* Smooth scrolling for the card columns */
+.scroll-container {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    white 10%,
+    white 90%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    white 10%,
+    white 90%,
+    transparent
+  );
+}
+
+/* Better 3D rendering */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
