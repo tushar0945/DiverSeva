@@ -1,109 +1,121 @@
 import { motion } from "framer-motion";
 
-const floating = (delay = 0) => ({
-  animate: {
-    y: [0, -10, 0],
-    transition: {
-      duration: 3,
-      delay,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-});
+/* ================= CARD COMPONENT ================= */
+const Card = ({ text }) => {
+  return (
+    <div className="bg-white shadow-md rounded-xl px-5 py-3 flex items-center gap-3 mb-6 min-w-[260px]">
+      <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+        ✓
+      </span>
+      <p className="text-sm font-medium text-slate-800 whitespace-nowrap">
+        {text}
+      </p>
+    </div>
+  );
+};
 
+/* ================= CARD COLUMN (INFINITE LOOP) ================= */
+const CardColumn = ({ items, duration = 20 }) => {
+  return (
+    <div className="h-[420px] overflow-hidden">
+      <motion.div
+        className="flex flex-col"
+        animate={{ y: ["0%", "-50%"] }}
+        transition={{
+          duration,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        {[...items, ...items].map((item, index) => (
+          <Card key={index} text={item} />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
+
+/* ================= HERO ================= */
 const Hero = () => {
+  const leftCards = [
+    "Driver arrived on time",
+    "Office drop completed safely",
+    "Family trip started stress-free",
+    "PUC & documents handled",
+  ];
+
+  const rightCards = [
+    "Verified Marathi-speaking driver",
+    "Car cleaned before pickup",
+    "Trip completed without tension",
+    "Rewards earned for your ride",
+  ];
+
   return (
     <section className="w-full bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* ================= LEFT ================= */}
+          {/* ================= LEFT CONTENT ================= */}
           <div>
-            <p className="text-emerald-500 font-semibold tracking-wide mb-4">
+            <p className="text-emerald-500 font-semibold tracking-wide mb-3">
               SIMPLIFY CAR OWNERSHIP
             </p>
 
+            <p className="text-sm text-gray-400 mb-4">
+              कार आहे? बाकी आम्ही पाहतो.
+            </p>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
-              Hire professional drivers,
+              Need a driver?
               <br />
-              and all car services at
+              We take care of your car
               <br />
-              your fingertips.
+              like it’s our own.
             </h1>
 
-            <p className="mt-6 text-gray-400 text-lg">
-              Get rewarded for owning a car!
+            <p className="mt-4 text-lg font-medium text-emerald-600">
+              कार आमची जबाबदारी, प्रवास तुमचा.
+            </p>
+
+            <p className="mt-6 text-gray-500 text-lg max-w-xl">
+              From daily office travel to long family trips —
+              <span className="font-medium text-slate-900">
+                {" "}
+                we send drivers you can actually trust.
+              </span>
+            </p>
+
+            <p className="mt-2 text-sm text-gray-400">
+              विश्वासार्ह ड्रायव्हर • मराठी सपोर्ट • No hidden charges
             </p>
 
             <div className="mt-10 flex gap-6">
-              <button className="px-8 py-4 bg-gradient-to-r from-slate-900 to-indigo-900 text-white font-semibold rounded-md">
+              <button className="px-8 py-4 bg-gradient-to-r from-slate-900 to-indigo-900 text-white font-semibold rounded-md hover:opacity-90 transition">
                 Book Driver
+                {/* <span className="block text-xs font-normal opacity-80">
+                  ड्रायव्हर लगेच मिळवा
+                </span> */}
               </button>
 
-              <button className="px-8 py-4 border-2 border-slate-900 rounded-md font-semibold">
+              <button className="px-8 py-4 border-2 border-slate-900 text-slate-900 font-semibold rounded-md hover:bg-slate-900 hover:text-white transition">
                 Download App
+                {/* <span className="block text-xs font-normal opacity-80">
+                  सोपं आणि सुरक्षित
+                </span> */}
               </button>
             </div>
+
+            <p className="mt-6 text-sm text-gray-400 italic">
+              “आज ड्रायव्हर मिळेल का?” — हा प्रश्न आता संपला.
+            </p>
           </div>
 
-          {/* ================= RIGHT (FIXED) ================= */}
-          <div className="relative flex justify-center items-center h-[520px]">
-            {/* Background Circle */}
-            <div className="absolute w-[420px] h-[420px] rounded-full bg-slate-100" />
+          {/* ================= RIGHT CONTENT ================= */}
+          <div className="relative flex justify-center gap-12">
+            <div className="absolute w-[420px] h-[420px] rounded-full bg-slate-100 -z-10" />
 
-            {/* Center Illustration */}
-            <motion.div
-              animate={{ y: [0, -15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 w-[300px] h-[300px] bg-white rounded-full shadow-lg flex items-center justify-center"
-            >
-              <span className="text-gray-400 text-sm">Driver Illustration</span>
-            </motion.div>
-
-            {/* Cards */}
-            <motion.div
-              variants={floating(0)}
-              animate="animate"
-              className="absolute top-6 left-12 bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2"
-            >
-              <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs">
-                ✓
-              </span>
-              <p className="text-sm">FASTag recharged</p>
-            </motion.div>
-
-            <motion.div
-              variants={floating(0.5)}
-              animate="animate"
-              className="absolute top-24 right-10 bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2"
-            >
-              <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs">
-                ✓
-              </span>
-              <p className="text-sm">1000 coins rewarded</p>
-            </motion.div>
-
-            <motion.div
-              variants={floating(1)}
-              animate="animate"
-              className="absolute bottom-24 left-16 bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2"
-            >
-              <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs">
-                ✓
-              </span>
-              <p className="text-sm">Insurance renewed</p>
-            </motion.div>
-
-            <motion.div
-              variants={floating(1.5)}
-              animate="animate"
-              className="absolute bottom-8 right-14 bg-white shadow-md rounded-lg px-4 py-3 flex items-center gap-2"
-            >
-              <span className="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xs">
-                ✓
-              </span>
-              <p className="text-sm">Car wash booked</p>
-            </motion.div>
+            <CardColumn items={leftCards} duration={22} />
+            <CardColumn items={rightCards} duration={28} />
           </div>
         </div>
       </div>
