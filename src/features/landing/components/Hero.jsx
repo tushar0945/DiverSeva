@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../auth/auth.context";
 import LoginModal from "../../auth/components/LoginModal";
+import OtpModal from "../../auth/components/OtpModal";
 
 /* ================= CARD COMPONENT ================= */
 const Card = ({ text }) => {
@@ -42,8 +43,10 @@ const CardColumn = ({ items, duration = 20 }) => {
 /* ================= HERO ================= */
 const Hero = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, login } = useAuth();
+
   const [showLogin, setShowLogin] = useState(false);
+  const [showOtp, setShowOtp] = useState(false);
 
   const leftCards = [
     "Driver arrived on time",
@@ -59,7 +62,8 @@ const Hero = () => {
     "Rewards earned for your ride",
   ];
 
-  /* ===== CTA HANDLER ===== */
+  /* ================= CTA HANDLERS ================= */
+
   const handleBookDriver = () => {
     if (isAuthenticated) {
       navigate("/book");
@@ -68,11 +72,24 @@ const Hero = () => {
     }
   };
 
+  // After phone number submit
   const handleLoginContinue = () => {
-    // ❌ DO NOT LOGIN HERE
-    // next step → OTP or /login page
     setShowLogin(false);
-    navigate("/login");
+    setShowOtp(true);
+  };
+
+  // After OTP verification
+  const handleOtpVerify = (otp) => {
+    // TEMP OTP (replace with backend later)
+    if (otp !== "123456") {
+      alert("Invalid OTP. Try 123456");
+      return;
+    }
+
+    // ✅ NOW user is authenticated
+    login("verified-token");
+    setShowOtp(false);
+    navigate("/book");
   };
 
   return (
@@ -139,11 +156,22 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* ================= LOGIN MODAL ================= */}
+      {/* ================= PHONE LOGIN MODAL ================= */}
       <LoginModal
         open={showLogin}
         onClose={() => setShowLogin(false)}
         onContinue={handleLoginContinue}
+      />
+
+      {/* ================= OTP MODAL ================= */}
+      <OtpModal
+        open={showOtp}
+        onClose={() => setShowOtp(false)}
+        onVerify={handleOtpVerify}
+        onChangeNumber={() => {
+          setShowOtp(false);
+          setShowLogin(true);
+        }}
       />
     </>
   );
