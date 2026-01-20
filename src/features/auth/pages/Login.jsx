@@ -1,6 +1,6 @@
 import Button from "../../../components/common/Button";
 import Input from "../../../components/common/Input";
-import { useAuthContext } from "../auth.context";
+import { useAuth } from "../auth.context";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
