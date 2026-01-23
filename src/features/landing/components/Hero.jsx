@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../auth/auth.context";
-import LoginModal from "../../auth/components/LoginModal";
-import OtpModal from "../../auth/components/OtpModal";
 import CardColumn from "../components/hero/CardColumn";
 
 const Hero = () => {
-  const navigate = useNavigate();
-  const { isAuthenticated, login } = useAuth();
+  // ✅ WhatsApp link (replace with your number)
+  const WHATSAPP_NUMBER = "918999197992"; // format: countrycode + number (no +)
+  const WHATSAPP_MESSAGE =
+    "Hello! I want to book a driver. Please share details.";
 
-  const [showLogin, setShowLogin] = useState(false);
-  const [showOtp, setShowOtp] = useState(false);
+  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    WHATSAPP_MESSAGE,
+  )}`;
 
   const leftCards = [
     "Driver arrived on time",
@@ -35,27 +33,9 @@ const Hero = () => {
     "Flexible booking options",
   ];
 
+  // ✅ Click handler opens WhatsApp instead of booking/login modal
   const handleBookDriver = () => {
-    if (isAuthenticated) {
-      navigate("/book");
-    } else {
-      setShowLogin(true);
-    }
-  };
-
-  const handleLoginContinue = () => {
-    setShowLogin(false);
-    setShowOtp(true);
-  };
-
-  const handleOtpVerify = (otp) => {
-    if (otp !== "123456") {
-      alert("Invalid OTP. Try 123456");
-      return;
-    }
-    login("verified-token");
-    setShowOtp(false);
-    navigate("/book");
+    window.open(whatsappLink, "_blank");
   };
 
   return (
@@ -69,15 +49,6 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {/* <motion.p
-                className="text-emerald-500 font-semibold tracking-wide mb-3 text-sm uppercase"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                SIMPLIFY CAR OWNERSHIP
-              </motion.p> */}
-
               <motion.p
                 className="text-sm text-gray-400 mb-4 font-medium"
                 initial={{ opacity: 0, y: 20 }}
@@ -153,6 +124,11 @@ const Hero = () => {
                     transition={{ duration: 0.4 }}
                   />
                 </motion.button>
+
+                {/* Optional small WhatsApp hint */}
+                <p className="mt-3 text-xs text-gray-500">
+                  Click to chat on WhatsApp instantly
+                </p>
               </motion.div>
 
               <motion.p
@@ -186,30 +162,16 @@ const Hero = () => {
                   rotate: [0, 90, 180, 270, 360],
                 }}
                 transition={{
-                  background: {
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                  scale: {
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  },
-                  rotate: {
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
+                  background: { duration: 8, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
                 }}
               />
 
               {/* Subtle glow effect */}
               <motion.div
                 className="absolute w-[420px] h-[420px] lg:w-[500px] lg:h-[500px] rounded-full bg-gradient-to-r from-emerald-100/30 to-indigo-100/30 -z-20 blur-2xl"
-                animate={{
-                  opacity: [0.2, 0.4, 0.2],
-                }}
+                animate={{ opacity: [0.2, 0.4, 0.2] }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
@@ -229,23 +191,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
-      {/* MODALS */}
-      <LoginModal
-        open={showLogin}
-        onClose={() => setShowLogin(false)}
-        onContinue={handleLoginContinue}
-      />
-
-      <OtpModal
-        open={showOtp}
-        onClose={() => setShowOtp(false)}
-        onVerify={handleOtpVerify}
-        onChangeNumber={() => {
-          setShowOtp(false);
-          setShowLogin(true);
-        }}
-      />
     </>
   );
 };
