@@ -39,9 +39,9 @@ const Footer = () => {
               <li className="hover:text-white cursor-pointer">
                 Outstation Drivers
               </li>
-              <li className="hover:text-white cursor-pointer">
+              {/* <li className="hover:text-white cursor-pointer">
                 Car Wash & Care
-              </li>
+              </li> */}
               <li className="hover:text-white cursor-pointer">
                 FASTag & Car Essentials
               </li>
@@ -53,8 +53,8 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3 text-sm">
               <li className="hover:text-white cursor-pointer">About Us</li>
-              <li className="hover:text-white cursor-pointer">How It Works</li>
-              <li className="hover:text-white cursor-pointer">Careers</li>
+              {/* <li className="hover:text-white cursor-pointer">How It Works</li> */}
+              {/* <li className="hover:text-white cursor-pointer">Careers</li> */}
               <li className="hover:text-white cursor-pointer">Contact Us</li>
             </ul>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            {/* <div className="flex gap-4 mt-6">
               <Facebook className="hover:text-white cursor-pointer" size={18} />
               <Instagram
                 className="hover:text-white cursor-pointer"
@@ -84,7 +84,7 @@ const Footer = () => {
               />
               <Twitter className="hover:text-white cursor-pointer" size={18} />
               <Linkedin className="hover:text-white cursor-pointer" size={18} />
-            </div>
+            </div> */}
           </div>
         </div>
 

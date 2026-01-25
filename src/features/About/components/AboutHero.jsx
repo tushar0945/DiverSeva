@@ -27,7 +27,7 @@ const AboutHero = () => {
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap gap-8 text-sm">
+          {/* <div className="flex flex-wrap gap-8 text-sm">
             <div>
               <p className="text-2xl font-bold text-gray-900">5,000+</p>
               <p className="text-gray-500">Verified Drivers</p>
@@ -40,7 +40,7 @@ const AboutHero = () => {
               <p className="text-2xl font-bold text-gray-900">1L+</p>
               <p className="text-gray-500">Happy Customers</p>
             </div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* RIGHT ILLUSTRATION */}

@@ -121,7 +121,7 @@ const Reviews = () => {
         </motion.div>
 
         {/* Marathi touch line */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ amount: 0.6 }} // 👈 replay
@@ -129,7 +129,7 @@ const Reviews = () => {
           className="mt-10 text-center text-sm text-gray-400 italic"
         >
           “एकदा वापरून बघा — मग फरक कळेल.”
-        </motion.p>
+        </motion.p> */}
       </div>
     </section>
   );

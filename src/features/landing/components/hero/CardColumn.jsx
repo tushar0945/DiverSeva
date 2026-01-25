@@ -6,75 +6,79 @@ import Card from "./Card";
 const CardColumn = ({ items, duration = 20, reverse = false, delay = 0 }) => {
   return (
     <motion.div
-      className="h-[420px] overflow-hidden relative w-[320px]" // Fixed width for the column
+      className="relative w-[320px]"
       initial={{ opacity: 0, x: reverse ? 30 : -30 }}
       animate={{
         opacity: 1,
         x: 0,
         transition: {
           duration: 0.8,
-          delay: delay,
+          delay,
           ease: "easeOut",
         },
       }}
       style={{
-        perspective: 1000,
-        transformStyle: "preserve-3d",
+        perspective: 1200,
       }}
     >
-      {/* Gradient overlays */}
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white via-white/90 to-transparent z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/90 to-transparent z-10" />
+      {/* Vertical mask wrapper */}
+      <div className="relative h-[420px] overflow-y-hidden overflow-x-visible">
+        {/* Gradient fade */}
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white to-transparent z-20" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent z-20" />
 
-      <motion.div
-        className="flex flex-col px-2" // Added padding to prevent cropping
-        animate={{
-          y: ["0%", "-50%"],
-          rotateX: reverse ? 3 : -3,
-        }}
-        transition={{
-          y: {
-            duration,
-            repeat: Infinity,
-            ease: "linear",
-          },
-          rotateX: {
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            repeatType: "reverse",
-          },
-        }}
-      >
-        {[...items, ...items].map((item, index) => (
-          <motion.div
-            key={index}
-            className="w-full px-1" // Full width with padding
-            style={{
-              transformStyle: "preserve-3d",
-              backfaceVisibility: "hidden",
-            }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              rotateY: index % 2 === 0 ? 1 : -1,
-            }}
-            transition={{
-              delay: delay + index * 0.15,
-              type: "spring",
-              stiffness: 80,
-              damping: 12,
-            }}
-            whileHover={{
-              rotateY: index % 2 === 0 ? 8 : -8,
-              z: 50,
-            }}
-          >
-            <Card text={item} />
-          </motion.div>
-        ))}
-      </motion.div>
+        <motion.div
+          className="flex flex-col px-2 pt-8 pb-8"
+          animate={{
+            y: ["0%", "-50%"],
+            rotateX: reverse ? 2 : -2,
+          }}
+          transition={{
+            y: {
+              duration,
+              repeat: Infinity,
+              ease: "linear",
+            },
+            rotateX: {
+              duration: 5,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            },
+          }}
+          style={{
+            transformStyle: "preserve-3d",
+          }}
+        >
+          {[...items, ...items].map((item, index) => (
+            <motion.div
+              key={index}
+              className="w-full px-1"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                rotateY: index % 2 === 0 ? 1 : -1,
+              }}
+              transition={{
+                delay: delay + index * 0.12,
+                type: "spring",
+                stiffness: 90,
+                damping: 14,
+              }}
+              whileHover={{
+                rotateY: index % 2 === 0 ? 6 : -6,
+                z: 40,
+              }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}
+            >
+              <Card text={item} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
