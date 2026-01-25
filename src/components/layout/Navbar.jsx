@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../assets/logos/Dlogo2.png";
+import logo from "../../assets/logos/Dlogo3.png";
 
 const NAVBAR_HEIGHT = "80px"; // h-20 = 80px
 
