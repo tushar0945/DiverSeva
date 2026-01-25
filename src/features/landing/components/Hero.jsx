@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import CardColumn from "../components/hero/CardColumn";
 
 const Hero = () => {
-  // ✅ WhatsApp link (replace with your number)
-  const WHATSAPP_NUMBER = "918999197992"; // format: countrycode + number (no +)
+  // ✅ WhatsApp link
+  const WHATSAPP_NUMBER = "918999197992"; // countrycode + number (no +)
   const WHATSAPP_MESSAGE =
     "Hello! I want to book a driver. Please share details.";
 
@@ -33,7 +33,6 @@ const Hero = () => {
     "Flexible booking options",
   ];
 
-  // ✅ Click handler opens WhatsApp instead of booking/login modal
   const handleBookDriver = () => {
     window.open(whatsappLink, "_blank");
   };
@@ -49,6 +48,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
+              {/* ✅ Reduced Marathi */}
               <motion.p
                 className="text-sm text-gray-400 mb-4 font-medium"
                 initial={{ opacity: 0, y: 20 }}
@@ -74,15 +74,7 @@ const Hero = () => {
                 like it's our own.
               </motion.h1>
 
-              <motion.p
-                className="mt-6 text-lg font-medium text-emerald-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                कार आमची जबाबदारी, प्रवास तुमचा.
-              </motion.p>
-
+              {/* ✅ Removed Marathi paragraph */}
               <motion.p
                 className="mt-6 text-gray-600 text-lg max-w-xl leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
@@ -95,13 +87,14 @@ const Hero = () => {
                 </span>
               </motion.p>
 
+              {/* ✅ Removed Marathi bullet line */}
               <motion.p
                 className="mt-4 text-sm text-gray-500"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                विश्वासार्ह ड्रायव्हर • मराठी सपोर्ट • No hidden charges
+                Verified drivers • Live support • No hidden charges
               </motion.p>
 
               <motion.div
@@ -125,20 +118,12 @@ const Hero = () => {
                   />
                 </motion.button>
 
-                {/* Optional small WhatsApp hint */}
                 <p className="mt-3 text-xs text-gray-500">
                   Click to chat on WhatsApp instantly
                 </p>
               </motion.div>
 
-              <motion.p
-                className="mt-8 text-sm text-gray-500 italic border-l-4 border-emerald-200 pl-4 py-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9 }}
-              >
-                "आज ड्रायव्हर मिळेल का?" — हा प्रश्न आता संपला.
-              </motion.p>
+              {/* ✅ Removed Marathi quote */}
             </motion.div>
 
             {/* RIGHT CONTENT - ANIMATED CARDS */}

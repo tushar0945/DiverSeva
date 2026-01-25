@@ -3,6 +3,8 @@ import Login from "../features/auth/pages/Login";
 import BookDriver from "../features/booking/pages/BookDriver";
 import ProtectedRoute from "../routes/ProtectedRoute";
 import PageWrapper from "../components/layout/PageWrapper";
+import AboutUs from "../features/About/pages/AboutUs";
+import Contact from "../features/Contact/pages/Contact";
 
 export const appRoutes = [
   {
@@ -11,6 +13,14 @@ export const appRoutes = [
       {
         path: "/",
         element: <Landing />,
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contactus",
+        element: <Contact />,
       },
       {
         path: "/book",
