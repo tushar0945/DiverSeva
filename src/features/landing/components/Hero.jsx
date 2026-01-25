@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import CardColumn from "../components/hero/CardColumn";
 
 const Hero = () => {
-  // ✅ WhatsApp link
-  const WHATSAPP_NUMBER = "918999197992"; // countrycode + number (no +)
+  const WHATSAPP_NUMBER = "918999197992";
   const WHATSAPP_MESSAGE =
     "Hello! I want to book a driver. Please share details.";
 
@@ -38,145 +37,125 @@ const Hero = () => {
   };
 
   return (
-    <>
-      <section className="w-full bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 pt-2 pb-12 lg:pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* LEFT CONTENT */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+    <section className="w-full bg-white overflow-x-hidden overflow-y-visible lg:overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 pb-16 lg:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ amount: 0.4 }} // 👈 replay when visible
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.p
+              className="text-sm text-gray-400 mb-4 font-medium"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ delay: 0.1 }}
             >
-              {/* ✅ Reduced Marathi */}
-              <motion.p
-                className="text-sm text-gray-400 mb-4 font-medium"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-              >
-                कार आहे? बाकी आम्ही पाहतो.
-              </motion.p>
+              कार आहे? बाकी आम्ही पाहतो.
+            </motion.p>
 
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-              >
-                Need a driver?
-                <br />
-                <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
-                  We take care
-                </span>{" "}
-                of your car
-                <br />
-                like it's our own.
-              </motion.h1>
-
-              {/* ✅ Removed Marathi paragraph */}
-              <motion.p
-                className="mt-6 text-gray-600 text-lg max-w-xl leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-              >
-                From daily office travel to long family trips —{" "}
-                <span className="font-semibold text-slate-900">
-                  we send drivers you can actually trust.
-                </span>
-              </motion.p>
-
-              {/* ✅ Removed Marathi bullet line */}
-              <motion.p
-                className="mt-4 text-sm text-gray-500"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 }}
-              >
-                Verified drivers • Live support • No hidden charges
-              </motion.p>
-
-              <motion.div
-                className="mt-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <motion.button
-                  onClick={handleBookDriver}
-                  className="px-12 py-4 min-w-[220px] bg-gradient-to-r from-slate-900 to-indigo-900 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span className="relative z-10">Book Driver Now</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-400"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: 0 }}
-                    transition={{ duration: 0.4 }}
-                  />
-                </motion.button>
-
-                <p className="mt-3 text-xs text-gray-500">
-                  Click to chat on WhatsApp instantly
-                </p>
-              </motion.div>
-
-              {/* ✅ Removed Marathi quote */}
-            </motion.div>
-
-            {/* RIGHT CONTENT - ANIMATED CARDS */}
-            <motion.div
-              className="relative flex justify-center gap-8 lg:gap-12"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+            <motion.h1
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ delay: 0.2 }}
             >
-              {/* Animated background orb */}
-              <motion.div
-                className="absolute w-[400px] h-[400px] lg:w-[480px] lg:h-[480px] rounded-full -z-10"
-                animate={{
-                  background: [
-                    "radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
-                    "radial-gradient(circle at 70% 70%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
-                    "radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
-                    "radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%)",
-                  ],
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 90, 180, 270, 360],
-                }}
-                transition={{
-                  background: { duration: 8, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                }}
-              />
+              Need a driver?
+              <br />
+              <span className="bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
+                We take care
+              </span>{" "}
+              of your car
+              <br />
+              like it's our own.
+            </motion.h1>
 
-              {/* Subtle glow effect */}
-              <motion.div
-                className="absolute w-[420px] h-[420px] lg:w-[500px] lg:h-[500px] rounded-full bg-gradient-to-r from-emerald-100/30 to-indigo-100/30 -z-20 blur-2xl"
-                animate={{ opacity: [0.2, 0.4, 0.2] }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+            <motion.p
+              className="mt-6 text-gray-600 text-base sm:text-lg max-w-xl leading-relaxed"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ delay: 0.35 }}
+            >
+              From daily office travel to long family trips —{" "}
+              <span className="font-semibold text-slate-900">
+                we send drivers you can actually trust.
+              </span>
+            </motion.p>
 
-              {/* Card columns */}
-              <CardColumn items={leftCards} duration={22} delay={0.5} />
-              <CardColumn
-                items={rightCards}
-                duration={28}
-                reverse
-                delay={0.7}
-              />
+            <motion.p
+              className="mt-4 text-sm text-gray-500"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ delay: 0.45 }}
+            >
+              Verified drivers • Live support • No hidden charges
+            </motion.p>
+
+            <motion.div
+              className="mt-10"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.4 }}
+              transition={{ delay: 0.55 }}
+            >
+              <motion.button
+                onClick={handleBookDriver}
+                className="px-10 py-4 min-w-[200px]
+                  bg-gradient-to-r from-slate-900 to-indigo-900
+                  text-white font-semibold rounded-full
+                  hover:shadow-xl transition-all duration-300
+                  relative overflow-hidden group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <span className="relative z-10">Book Driver Now</span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-emerald-400"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.35 }}
+                />
+              </motion.button>
+
+              <p className="mt-3 text-xs text-gray-500">
+                Click to chat on WhatsApp instantly
+              </p>
             </motion.div>
-          </div>
+          </motion.div>
+
+          {/* RIGHT CONTENT */}
+          <motion.div
+            className="relative hidden sm:flex flex-col sm:flex-row justify-center gap-6 sm:gap-10 isolate"
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ amount: 0.4 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            {/* Background effects */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
+              <motion.div
+                className="w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[480px] lg:h-[480px] rounded-full"
+                animate={{ rotate: [0, 180, 360] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                style={{
+                  background:
+                    "radial-gradient(circle at center, rgba(16,185,129,0.15), transparent 70%)",
+                }}
+              />
+            </div>
+
+            <CardColumn items={leftCards} duration={22} delay={0.3} />
+            <CardColumn items={rightCards} duration={28} reverse delay={0.5} />
+          </motion.div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

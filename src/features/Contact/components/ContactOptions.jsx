@@ -11,24 +11,42 @@ const ContactOptions = () => {
   )}`;
 
   return (
-    <section className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-8">
+    <section className="bg-white py-16 sm:py-20 lg:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* WhatsApp */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="border rounded-2xl p-8 text-center hover:shadow-lg transition"
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="
+              group bg-white border border-gray-100 rounded-2xl
+              p-6 sm:p-8 text-center
+              shadow-sm hover:shadow-lg
+              transition-all
+            "
           >
-            <MessageCircle className="mx-auto mb-4 text-green-600" size={36} />
-            <h3 className="text-lg font-semibold mb-2">WhatsApp</h3>
+            <MessageCircle className="mx-auto mb-4 text-green-600" size={32} />
+
+            <h3 className="text-base sm:text-lg font-semibold mb-2 text-gray-900">
+              WhatsApp
+            </h3>
+
             <p className="text-gray-600 mb-6 text-sm">
               Fastest way to book a driver
             </p>
+
             <button
               onClick={() => window.open(whatsappLink, "_blank")}
-              className="bg-green-600 text-white px-6 py-3 rounded-full font-medium hover:bg-green-700 transition"
+              className="
+                w-full sm:w-auto
+                bg-green-600 text-white
+                px-6 py-3 rounded-full
+                font-semibold
+                hover:bg-green-700
+                transition
+              "
             >
               Chat on WhatsApp
             </button>
@@ -36,19 +54,34 @@ const ContactOptions = () => {
 
           {/* Call */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="border rounded-2xl p-8 text-center hover:shadow-lg transition"
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            className="
+              group bg-white border border-gray-100 rounded-2xl
+              p-6 sm:p-8 text-center
+              shadow-sm hover:shadow-lg
+              transition-all
+            "
           >
-            <Phone className="mx-auto mb-4 text-green-600" size={36} />
-            <h3 className="text-lg font-semibold mb-2">Call Us</h3>
+            <Phone className="mx-auto mb-4 text-green-600" size={32} />
+
+            <h3 className="text-base sm:text-lg font-semibold mb-2 text-gray-900">
+              Call Us
+            </h3>
+
             <p className="text-gray-600 mb-6 text-sm">
               Speak directly with our team
             </p>
+
             <a
               href="tel:+918999197992"
-              className="text-green-600 font-semibold"
+              className="
+                inline-block
+                text-green-600 font-semibold
+                hover:underline
+              "
             >
               +91 89991 97992
             </a>
@@ -56,19 +89,34 @@ const ContactOptions = () => {
 
           {/* Email */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="border rounded-2xl p-8 text-center hover:shadow-lg transition"
+            viewport={{ amount: 0.3 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+            className="
+              group bg-white border border-gray-100 rounded-2xl
+              p-6 sm:p-8 text-center
+              shadow-sm hover:shadow-lg
+              transition-all
+            "
           >
-            <Mail className="mx-auto mb-4 text-green-600" size={36} />
-            <h3 className="text-lg font-semibold mb-2">Email</h3>
+            <Mail className="mx-auto mb-4 text-green-600" size={32} />
+
+            <h3 className="text-base sm:text-lg font-semibold mb-2 text-gray-900">
+              Email
+            </h3>
+
             <p className="text-gray-600 mb-6 text-sm">
               For business & formal queries
             </p>
+
             <a
               href="mailto:support@driverseva.in"
-              className="text-green-600 font-semibold"
+              className="
+                inline-block
+                text-green-600 font-semibold
+                hover:underline
+              "
             >
               support@driverseva.in
             </a>

@@ -3,16 +3,14 @@ import aboutIllustration from "../../../assets/aboutUs/aboutUs.png";
 
 const AboutHero = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center  overflow-hidden">
-      {/* Background blob */}
-      {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[520px] h-[520px] bg-green-100 rounded-full blur-3xl opacity-40" /> */}
-
-      <div className="relative max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-[90vh] flex items-start md:items-center overflow-hidden pt-20 md:pt-0">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols-2 gap-12 items-center">
         {/* LEFT CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="inline-block mb-6 text-sm font-medium text-green-700 bg-green-50 px-4 py-1 rounded-full">
             Trusted Driver Partner
@@ -28,8 +26,8 @@ const AboutHero = () => {
             family and corporate travel.
           </p>
 
-          {/* Stats row */}
-          <div className="flex gap-10 text-sm">
+          {/* Stats */}
+          <div className="flex flex-wrap gap-8 text-sm">
             <div>
               <p className="text-2xl font-bold text-gray-900">5,000+</p>
               <p className="text-gray-500">Verified Drivers</p>
@@ -49,13 +47,14 @@ const AboutHero = () => {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="relative flex justify-center md:justify-end"
         >
           <img
             src={aboutIllustration}
             alt="Professional driver with car"
-            className="w-full max-w-md lg:max-w-lg d"
+            className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
             draggable={false}
           />
         </motion.div>
