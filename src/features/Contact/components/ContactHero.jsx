@@ -28,7 +28,7 @@ const ContactHero = () => {
 
             {/* CTA BUTTON */}
             <motion.a
-              href="https://wa.me/918999197992"
+              href="https://wa.me/918999703730"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.04 }}

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const AboutCTA = () => {
-  const WHATSAPP_NUMBER = "918999197992";
+  const WHATSAPP_NUMBER = "918999703730";
   const WHATSAPP_MESSAGE =
     "Hello! I want to book a driver. Please share details.";
 

@@ -13,7 +13,7 @@ const ContactForm = () => {
       return;
     }
 
-    const whatsappNumber = "91XXXXXXXXXX"; // replace with your WhatsApp number
+    const whatsappNumber = "918999703730"; // replace with your WhatsApp number
 
     const text = `New Contact Message:
 

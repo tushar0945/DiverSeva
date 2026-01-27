@@ -7,7 +7,7 @@ const NAVBAR_HEIGHT = "80px"; // h-20 = 80px
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const WHATSAPP_NUMBER = "918999197992";
+  const WHATSAPP_NUMBER = "918999703730";
   const WHATSAPP_MESSAGE =
     "Hello! I want to book a driver. Please share details.";
 

@@ -2,7 +2,7 @@ import { Phone, Mail, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 const ContactOptions = () => {
-  const WHATSAPP_NUMBER = "918999197992";
+  const WHATSAPP_NUMBER = "918999703730";
   const WHATSAPP_MESSAGE =
     "Hello! I want to book a driver. Please share details.";
 
@@ -76,14 +76,14 @@ const ContactOptions = () => {
             </p>
 
             <a
-              href="tel:+918999197992"
+              href="tel:+918999703730"
               className="
                 inline-block
                 text-green-600 font-semibold
                 hover:underline
               "
             >
-              +91 89991 97992
+              +91 89997 03730
             </a>
           </motion.div>
 
@@ -111,14 +111,14 @@ const ContactOptions = () => {
             </p>
 
             <a
-              href="mailto:support@driverseva.in"
+              href="mailto:ns590419@gmail.com"
               className="
                 inline-block
                 text-green-600 font-semibold
                 hover:underline
               "
             >
-              support@driverseva.in
+              ns590419@gmail.com
             </a>
           </motion.div>
         </div>
