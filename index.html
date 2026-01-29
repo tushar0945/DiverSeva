@@ -2,14 +2,112 @@
 <html lang="en">
 
 <head>
+  <!-- =====================
+       BASIC META
+  ====================== -->
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="./src/assets/logos/icon4.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>driverseva</title>
+
+  <!-- =====================
+       TITLE & DESCRIPTION
+       (VERY IMPORTANT)
+  ====================== -->
+  <title>DriverSeva Official – Verified Drivers for Daily & Outstation Travel</title>
+
+  <meta name="description"
+    content="DriverSeva provides trusted, verified professional drivers for daily office travel, outstation trips, airport pickup, and personal use. Transparent pricing, no hidden charges, and 24/7 support." />
+
+  <!-- =====================
+       SEARCH ENGINE DIRECTIVES
+  ====================== -->
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- =====================
+       CANONICAL URL
+  ====================== -->
+  <link rel="canonical" href="https://driverseva.com/" />
+
+  <!-- =====================
+       FAVICONS (GOOGLE SERP SAFE)
+  ====================== -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- =====================
+       OPEN GRAPH (SOCIAL SEO)
+  ====================== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DriverSeva – Verified Drivers You Can Trust" />
+  <meta property="og:description"
+    content="Hire verified drivers for daily travel, outstation trips, and personal use. Trusted service, transparent pricing, and live support." />
+  <meta property="og:url" content="https://driverseva.com/" />
+  <meta property="og:image" content="https://driverseva.com/android-chrome-512x512.png" />
+  <meta property="og:site_name" content="DriverSeva" />
+
+  <!-- =====================
+       TWITTER CARD
+  ====================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DriverSeva – Verified Drivers You Can Trust" />
+  <meta name="twitter:description"
+    content="From daily office travel to long family trips, DriverSeva provides trusted verified drivers across India." />
+  <meta name="twitter:image" content="https://driverseva.com/android-chrome-512x512.png" />
+
+  <!-- =====================
+       ORGANIZATION STRUCTURED DATA
+       (VERY IMPORTANT FOR TRUST)
+  ====================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DriverSeva",
+    "url": "https://driverseva.com",
+    "logo": "https://driverseva.com/android-chrome-512x512.png",
+    "sameAs": [
+      "https://www.facebook.com/",
+      "https://www.linkedin.com/"
+    ]
+  }
+  </script>
+
+  <!-- =====================
+       LOCAL BUSINESS SCHEMA
+       (OPTIONAL BUT STRONG)
+  ====================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "DriverSeva",
+    "url": "https://driverseva.com",
+    "logo": "https://driverseva.com/android-chrome-512x512.png",
+    "image": "https://driverseva.com/android-chrome-512x512.png",
+    "telephone": "+91-XXXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "IN"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "India"
+    }
+  }
+  </script>
+
 </head>
 
 <body>
   <div id="root"></div>
+
+  <!-- =====================
+       VITE ENTRY POINT
+  ====================== -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
