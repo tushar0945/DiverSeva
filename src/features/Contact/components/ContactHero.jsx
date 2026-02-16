@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import contactIllustration from "../../../assets/conctactUs/contactUs.png";
+import contactIllustration from "../../../assets/conctactUs/contactUs.webp";
 
 const ContactHero = () => {
   return (
@@ -64,6 +64,11 @@ const ContactHero = () => {
             <img
               src={contactIllustration}
               alt="Contact DriverSeva"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="900"
+              height="600"
               className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
               draggable={false}
             />

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import aboutIllustration from "../../../assets/aboutUs/aboutUs.png";
+import aboutIllustration from "../../../assets/aboutUs/aboutUs.webp";
 
 const AboutHero = () => {
   return (
@@ -54,6 +54,11 @@ const AboutHero = () => {
           <img
             src={aboutIllustration}
             alt="Professional driver with car"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width="900"
+            height="600"
             className="w-full max-w-sm sm:max-w-md lg:max-w-lg"
             draggable={false}
           />
