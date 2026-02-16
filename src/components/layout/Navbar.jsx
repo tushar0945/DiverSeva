@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../assets/logos/Dlogo3.png";
+import logo from "../../assets/logos/Driverseva-logo.svg";
 
 const NAVBAR_HEIGHT = "80px"; // h-20 = 80px
 
@@ -42,8 +42,12 @@ const Navbar = () => {
             <NavLink to="/" className="flex items-center">
               <img
                 src={logo}
-                alt="DriverSeva Logo"
+                alt="DriverSeva – Verified Driver Service"
+                width="180"
+                height="56"
                 className="h-12 sm:h-14 md:h-16 w-auto object-contain"
+                loading="eager"
+                fetchpriority="high"
               />
             </NavLink>
 

@@ -94,6 +94,20 @@ const Footer = () => {
             © {new Date().getFullYear()} DriverSeva. All rights reserved.
           </p>
 
+          {/* Powered by - moved above tagline */}
+          <p className="text-xs text-gray-500">
+            Powered by{" "}
+            <a
+              href="https://www.linkedin.com/company/eagle-sora-transcendent-private-limited/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 transition"
+            >
+              Eagle Sora Transcendent Pvt. Ltd.
+            </a>
+          </p>
+
+          {/* Tagline */}
           <p className="text-sm text-gray-400 italic">
             Safe rides. Trusted drivers. Peace of mind.
           </p>
